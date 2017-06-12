@@ -11,7 +11,7 @@ namespace Carts.Content
         // GET: RouteTest
         public ActionResult Index()
         {
-            return Content("這是Index");
+            return View();
         }
 
         public ActionResult Index2(string id)
