@@ -13,6 +13,13 @@ namespace Carts.Controllers
             return View();
         }
 
+        public ActionResult Index2()
+        {
+            return Contenet(
+                "<html><body><h1>這是一般訊息</html></body></h1>"
+                );
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
