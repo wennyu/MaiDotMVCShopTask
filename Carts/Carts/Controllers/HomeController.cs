@@ -15,8 +15,8 @@ namespace Carts.Controllers
 
         public ActionResult Index2()
         {
-            return Contenet(
-                "<html><body><h1>這是一般訊息</html></body></h1>"
+            return Content(
+                "<html><body><h1>這是一段訊息</html></body></h1>"
                 );
         }
 
