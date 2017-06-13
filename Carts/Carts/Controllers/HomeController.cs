@@ -10,7 +10,6 @@ namespace Carts.Controllers
     {
         public ActionResult Index()
         {
-            // test commit
             return View();
         }
 
