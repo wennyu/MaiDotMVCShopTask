@@ -1,0 +1,33 @@
+﻿
+@model List<Carts.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>商品列表</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>編號</td>
+            <td>名稱</td>
+            <td>描述</td>
+            <td>售價</td>
+            <td>庫存</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var pd in this.Model) /*使用foreach將所有商品列出*/
+        {
+            <tr>
+                <td>@pd.Id</td>
+                <td>@pd.Name</td>
+                <td>@pd.Description</td>
+                <td>@pd.Price</td>
+                <td>@pd.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

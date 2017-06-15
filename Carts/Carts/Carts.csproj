@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RouteTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -241,6 +242,7 @@
       <DependentUpon>Carts.edmx</DependentUpon>
       <LastGenOutput>Carts.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Carts.edmx.sql" />
     <Content Include="Models\Carts.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Carts.edmx</DependentUpon>
@@ -305,6 +307,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\RouteTest\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
