@@ -7,6 +7,13 @@
 }
 
 <h2>商品列表</h2>
+
+
+@if (ViewBag.ResultMessage != null) //判斷如果有訊息，則顯示。
+{
+   @Html.Label("info", (string)ViewBag.ResultMessage, new { @class = "text-info"})
+}
+
 <table class="table">
     <thead>
         <tr>
