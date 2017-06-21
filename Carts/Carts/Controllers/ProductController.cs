@@ -24,5 +24,28 @@ namespace Carts.Controllers
                //將 result 傳送給檢視 
                 return View(result);
         }
+
+         //建立商品頁面
+     public ActionResult Create()
+     {
+        return View();
+     }
+
+        //建立商品頁面—資料傳回處理
+        [HttpPost] //指定只有使用POST方法才可進入
+        public ActionResult Create(Models.Product postback)
+        {
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                //將回傳資料 postback加入至products
+                db.Products.Add(postback);
+
+                //儲存異動資料
+                db.SaveChanges();
+            }
+            return View();
+        }
+    
     }
+       
 }
