@@ -56,6 +56,7 @@ namespace Carts.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
+        //會員登入功能，回傳登入頁面
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -67,6 +68,7 @@ namespace Carts.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //會員登入頁面之驗證方法
         {
             if (!ModelState.IsValid)
             {
@@ -138,6 +140,7 @@ namespace Carts.Controllers
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
+            //會員註冊功能，回傳註冊頁面
         {
             return View();
         }
@@ -148,10 +151,13 @@ namespace Carts.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
+        //會員註冊之驗證方法
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //將原本的user變數，從原本都是傳入Email，改為其中一個為UserName
+                var user = new ApplicationUser { UserName = model.UserName , Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -390,6 +396,7 @@ namespace Carts.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
+        //登入中會員的登出方法
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
