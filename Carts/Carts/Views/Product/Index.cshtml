@@ -29,6 +29,19 @@
         @foreach (var pd in this.Model) /*使用foreach將所有商品列出*/
         {
             <tr>
+
+               
+                <td>
+                    @*在Index頁面中，新增[編輯]與[刪除]的ActionLink，幫助使用者轉導至對應頁面*@
+                    @Html.ActionLink(
+                   "編輯", "Edit", new { id = pd.Id }, new { @class = "btn btn-default" }
+                   ) 
+                    @Html.ActionLink(
+                   "刪除", "Delete", new { id = pd.Id }, new { @class = "btn btn-default" }
+                   )
+                    
+                </td>
+
                 <td>@pd.Id</td>
                 <td>@pd.Name</td>
                 <td>@pd.Description</td>

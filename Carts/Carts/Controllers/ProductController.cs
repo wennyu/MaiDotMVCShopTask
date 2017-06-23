@@ -65,7 +65,72 @@ namespace Carts.Controllers
             //停留在Create頁面
             return View(postback);
         }
-    
+
+        //編輯商品頁面
+        //新增Edit()方法，輸入為id，此Action是準備接收剛剛步驟1Index頁面新增的[Edit]超連結之請求(Request)。
+        public ActionResult Edit(int id)
+        {
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                //抓取product.Id等於輸入id的資料
+                var result = (from s in db.Products where s.Id == id select s).FirstOrDefault();
+
+                //判斷此id是否有資料
+                if (result != default(Models.Product))
+                {
+                    //如果有，回傳編輯商品頁面
+                    return View(result);
+                }
+                else
+                {
+                    //如果沒有資料，則顯示資料錯誤訊息，並導回Index頁面
+                    TempData["resultMessage"] = "資料有誤，請重新操作";
+                    return RedirectToAction("Index");
+                }
+            }
+        }
+
+
+        //編輯商品頁面—資料傳回處理
+        [HttpPost]
+        public ActionResult Edit(Models.Product postback)
+        {
+            //判斷使用者輸入資料是否正確
+            if (this.ModelState.IsValid)
+            {
+                using (Models.CartsEntities1 db = new Models.CartsEntities1())
+                {
+                    //抓取Product.Id等於回傳postback.ID的資枓
+                    var result = (from s in db.Products where s.Id == postback.Id select s).FirstOrDefault();
+
+                    //儲存使用者變更資料 
+                    result.Name = postback.Name;
+                    result.Price = postback.Price;
+                    result.PublishDate = postback.PublishDate;
+                    result.Quantity = postback.Quantity;
+                    result.Status = postback.Status;
+                    result.CategoryId = postback.CategoryId;
+                    result.DefaultImageId = postback.DefaultImageId;
+                    result.Description = postback.Description;
+
+                    //儲存所有變更
+                    db.SaveChanges();
+
+                    //設定成功訊息並導回index頁面
+                    TempData["ResultMessage"] = String.Format($"商品[{postback.Name}]成功編輯");
+                    return RedirectToAction("Index");
+             
+                }            
+            }
+
+            //如果資料不正確則導向自己(Edit頁面)
+            else
+            {
+                return View(postback);
+            }
+
+        }
+
     }
        
 }
