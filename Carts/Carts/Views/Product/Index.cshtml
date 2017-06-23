@@ -35,19 +35,26 @@
                     @*在Index頁面中，新增[編輯]與[刪除]的ActionLink，幫助使用者轉導至對應頁面*@
                     @Html.ActionLink(
                    "編輯", "Edit", new { id = pd.Id }, new { @class = "btn btn-default" }
-                   ) 
-                    @Html.ActionLink(
-                   "刪除", "Delete", new { id = pd.Id }, new { @class = "btn btn-default" }
                    )
-                    
+
                 </td>
 
-                <td>@pd.Id</td>
-                <td>@pd.Name</td>
-                <td>@pd.Description</td>
-                <td>@pd.Price</td>
-                <td>@pd.Quantity</td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <td>
+                    @*將原本使用ActionLink的刪除按鈕改為使用BeginForm(行25)，並且將id設定為隱藏欄位(行27)，按鈕改為直接使用HTML input元素，型態為submit*@
+                    @*刪除是很重要的操作，如果使用者直接在網址列輸入網址就可以刪除的話，其實是很危險的一件事情，所以我們選擇使用Post來完成。*@
+                        @using (Html.BeginForm("Delete", "Product", FormMethod.Post, new { @class = "Delete" }))
+                        {
+                            @Html.Hidden("id" , pd.Id)
+                            <input type= "submit" value="刪除"  class="btn btn-default"/>
+                        }
+                    </td>
+
+                    <td>@pd.Id</td>
+                    <td>@pd.Name</td>
+                    <td>@pd.Description</td>
+                    <td>@pd.Price</td>
+                    <td>@pd.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>

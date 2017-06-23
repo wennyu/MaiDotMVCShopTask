@@ -93,6 +93,9 @@ namespace Carts.Controllers
 
         //編輯商品頁面—資料傳回處理
         [HttpPost]
+        /*由於原本Index頁面的Delete按鈕是使用Get操作，此將Delete()方法改為Post，所以伺服器找不到相對應的方法而產生錯誤。
+         故須到Index頁面，
+         將原本使用ActionLink的刪除按鈕改為使用BeginForm*/
         public ActionResult Edit(Models.Product postback)
         {
             //判斷使用者輸入資料是否正確
@@ -131,6 +134,40 @@ namespace Carts.Controllers
 
         }
 
+
+        //刪除商品（新增Deleete()方法，基本上與編輯商品Edit大同小異，唯一差別是Delete我們不需要產生View，因為無論刪除是成功還是失敗，一律導回Index頁面。）
+        [HttpPost]
+        //刪除是很重要的操作，如果使用者直接在網址列輸入網址就可以刪除的話，其實是很危險的一件事情，所以我們選擇使用Post來完成。
+        public ActionResult Delete(int id)
+        {
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                //抓取Product.Id等於輸入id的資料
+                var result = (from s in db.Products where s.Id == id select s).FirstOrDefault();
+
+                //判斷此id是否有資料
+                if (result != default(Models.Product))
+                {
+                    db.Products.Remove(result);
+
+                    //儲存所有變更
+                    db.SaveChanges();
+
+                    //設定成功訊息並導回index頁面
+                    TempData["ResultMessage"] = String.Format($"商品[{result.Name}]成功刪除");
+                    return RedirectToAction("Index");
+                }
+
+                else
+                {//如果沒有資料則顯示錯誤訊息並導回Index頁面
+                    TempData["resultMessage"]= "指定資料不存在，無法刪除，請重新操作";
+                    return RedirectToAction("Index");
+                }
+            }
+        }
+
+
+
     }
-       
+
 }
