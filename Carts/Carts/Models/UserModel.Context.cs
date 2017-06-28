@@ -26,5 +26,7 @@ namespace Carts.Models
         }
     
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+
+        public System.Data.Entity.DbSet<Carts.Models.ManageUser> ManageUsers { get; set; }
     }
 }

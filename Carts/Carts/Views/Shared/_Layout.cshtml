@@ -20,6 +20,7 @@
                 </button>
                 @Html.ActionLink(" IT鐵人購物網站", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
@@ -28,10 +29,14 @@
                     <li>@Html.ActionLink("商品管理", "Index", "Product")</li>
                     <li>@Html.ActionLink("會員管理", "Index", "ManageUser")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+
+                @{
+                    Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");
+                }
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
