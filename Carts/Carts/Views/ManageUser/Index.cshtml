@@ -5,15 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>網站會員管理</h2>
-
-    @*改掉的預設值：　<p>@Html.ActionLink("Create New", "Create")</p>*@
+<h2>網站會員管理</h2> 
 
 @if (ViewBag.ResultMessage != null) //新增—判斷如果有訊息，則顯示。
 {
     @Html.Label("info", (string)ViewBag.ResultMessage, new { @class = "text-info" })
 }
 
+@*刪除預設<p>@Html.ActionLink("Create New", "Create")</p>*@
 
 <table class="table">
     <tr>
