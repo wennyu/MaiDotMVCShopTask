@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Carts.Models.ManageUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>網站會員管理</h2>
+
+    @*改掉的預設值：　<p>@Html.ActionLink("Create New", "Create")</p>*@
+
+@if (ViewBag.ResultMessage != null) //新增—判斷如果有訊息，則顯示。
+{
+    @Html.Label("info", (string)ViewBag.ResultMessage, new { @class = "text-info" })
+}
+
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.UserName)</th>
+        <th>@Html.DisplayNameFor(model => model.Email)</th>
+        <th>編輯</th>
+        <th>詳細資料</th>
+        <th>刪除</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.ActionLink("編輯", "Edit", new { id = item.Id } , new { @class = "btn btn-primary" }) </td>
+        <td>@Html.ActionLink("詳細資料", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) </td>
+        <td>
+            @using (Html.BeginForm("Delete", "ManageUser", FormMethod.Post))
+                {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("id", item.Id)
+                <input type="submit" value="刪除" class="btn btn-danger" />
+            }
+        </td>
+    </tr>
+}
+
+</table>
