@@ -203,6 +203,7 @@
     <Compile Include="Controllers\RouteTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +226,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Carts.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Carts\Cart.cs" />
+    <Compile Include="Models\Carts\CartItem.cs" />
+    <Compile Include="Models\Carts\Operation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -355,6 +359,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

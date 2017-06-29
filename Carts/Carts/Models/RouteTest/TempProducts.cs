@@ -18,21 +18,21 @@ namespace Carts.Models.RouteTest
             List<TempProducts> result = new List<TempProducts>();
 
             //加入三項商品
-            result.Add(new Carts.Models.RouteTest.TempProducts
+            result.Add(new TempProducts
             {
                 ID = 1,
                 Name = "自動鉛筆",
                 Price = 30.0m,
             });
 
-            result.Add(new Carts.Models.RouteTest.TempProducts
+            result.Add(new TempProducts
             {
                 ID = 2,
                 Name = "記事本",
                 Price = 50.0m,
             });
 
-            result.Add(new Carts.Models.RouteTest.TempProducts
+            result.Add(new TempProducts
             {
                 ID = 3,
                 Name = "橡皮擦",
