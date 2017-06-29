@@ -18,21 +18,29 @@ namespace Carts.Models.RouteTest
             List<TempProducts> result = new List<TempProducts>();
 
             //加入三項商品
-            result.Add(new TempProducts
+
+            /*            
+            完整路徑 Carts.Models.RouteTest.TempProducts 
+            因為專案名為Carts，後在模型項下建立同名的資料夾時，會產生問題。
+
+            可簡化路徑為：　 result.Add(new TempProducts
+            或使用　「　global::　」
+             */
+            result.Add(new global::Carts.Models.RouteTest.TempProducts
             {
                 ID = 1,
                 Name = "自動鉛筆",
                 Price = 30.0m,
             });
 
-            result.Add(new TempProducts
+            result.Add(new global::Carts.Models.RouteTest.TempProducts
             {
                 ID = 2,
                 Name = "記事本",
                 Price = 50.0m,
             });
 
-            result.Add(new TempProducts
+            result.Add(new global::Carts.Models.RouteTest.TempProducts
             {
                 ID = 3,
                 Name = "橡皮擦",
