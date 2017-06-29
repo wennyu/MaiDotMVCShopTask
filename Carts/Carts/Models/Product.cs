@@ -23,5 +23,6 @@ namespace Carts.Models
         public bool Status { get; set; }
         public Nullable<long> DefaultImageId { get; set; }
         public int Quantity { get; set; }
+        public string DefaultImageURL { get; set; }
     }
 }
