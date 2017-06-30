@@ -261,6 +261,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Caran_dache_fixpencil_0012.jpg" />
+    <Content Include="Images\notepad-538870_960_720.jpg" />
+    <Content Include="Images\paperclips-2265845_960_720.jpg" />
+    <Content Include="Images\tooth-brushes-1117266_960_720.jpg" />
     <Content Include="Models\Carts.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Carts.edmx</DependentUpon>
