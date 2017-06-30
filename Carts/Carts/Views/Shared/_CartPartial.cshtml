@@ -1,27 +1,50 @@
-﻿@{
-    // 取得目前購物車所有內容
-    var CurrentCart = Carts.Models.Carts.Operation.GetCurrentCart();
-}
+﻿
+@*
+    以下為Day20
+    @{
+        // 取得目前購物車所有內容
+        var CurrentCart = Carts.Models.Carts.Operation.GetCurrentCart();
+    }
 
-<a id="CartDropDown" class="dropdown-toggle" dtat-toggle ="dropdown">
-    @string.Format("共{0}元({1})",CurrentCart.TotalAmount,CurrentCart.Count)
-    <span class="caret"></span> 
-</a>
 
-<ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
-    @if (CurrentCart.Any())
-    {
-        foreach (var item in CurrentCart)
+        <a id="CartDropDown" class="dropdown-toggle" dtat-toggle="dropdown">
+        @string.Format("共{0}元({1})", CurrentCart.TotalAmount, CurrentCart.Count)
+        <span class="caret"></span>
+    </a>
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
+        @if (CurrentCart.Any())
         {
-            //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
-            <li><a>@item.Name <span>@item.Price元 X @item.Quantity</span></a></li>
+            foreach (var item in CurrentCart)
+            {
+                //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
+                <li><a>@item.Name <span>@item.Price元 X @item.Quantity</span></a></li>
+            }
         }
-    }
 
-    else
-    {
-        <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
-    }
-    <li class="divider">
-    <li>
-    <li><a class="btn btn-default text-center" href="="#">結帳去</a></li>
+        else
+        {
+            <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
+        }
+        <li class="divider">
+        <li>
+        <li><a class="btn btn-default text-center" href="=" #">結帳去</a></li>
+*@
+
+
+@*Day 19 試建立寫死的假資料*@
+
+@{
+//取得當前購物車所有內容
+}
+<a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown">
+    共500元 (3)
+    <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
+    <li><a>可愛鉛筆 <span>100元 X 1</span></a></li>
+    <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
+    <li><a>可愛墊板 <span>150元 X 2</span></a></li>
+    <li class="divider"></li>
+    <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
+</ul>
