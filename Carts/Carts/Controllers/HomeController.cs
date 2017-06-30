@@ -9,8 +9,14 @@ namespace Carts.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            return View();
+        {            
+            //修改首頁為正常的購物網站首頁
+            //將HemeController的Index()改為抓取Product表所有資料
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                var result = db.Products.ToList();
+                return View(result);
+            }
         }
 
         public ActionResult Index2()
