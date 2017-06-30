@@ -1,0 +1,27 @@
+﻿@{
+    // 取得目前購物車所有內容
+    var CurrentCart = Carts.Models.Carts.Operation.GetCurrentCart();
+}
+
+<a id="CartDropDown" class="dropdown-toggle" dtat-toggle ="dropdown">
+    @string.Format("共{0}元({1})",CurrentCart.TotalAmount,CurrentCart.Count)
+    <span class="caret"></span> 
+</a>
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
+    @if (CurrentCart.Any())
+    {
+        foreach (var item in CurrentCart)
+        {
+            //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
+            <li><a>@item.Name <span>@item.Price元 X @item.Quantity</span></a></li>
+        }
+    }
+
+    else
+    {
+        <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
+    }
+    <li class="divider">
+    <li>
+    <li><a class="btn btn-default text-center" href="="#">結帳去</a></li>
