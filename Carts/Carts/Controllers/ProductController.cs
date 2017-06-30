@@ -115,6 +115,7 @@ namespace Carts.Controllers
                     result.CategoryId = postback.CategoryId;
                     result.DefaultImageId = postback.DefaultImageId;
                     result.Description = postback.Description;
+                    result.DefaultImageURL = postback.DefaultImageURL;//Edit() Action 內新增儲存DefaultImageURL的程式碼
 
                     //儲存所有變更
                     db.SaveChanges();
