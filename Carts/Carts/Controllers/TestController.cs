@@ -25,8 +25,9 @@ namespace Carts.Controllers
         {
             // 取得目前購物車
             var Cart = Models.Carts.Operation.GetCurrentCart();
+            Cart.AddProduct(1);
 
-            //
+            /*D20 刪除（cartItems—建置錯誤）
             if (Cart.cartItems.Any())
             {
                 Cart.cartItems.First().Quantity += 1;
@@ -41,7 +42,7 @@ namespace Carts.Controllers
                         Quantity = 1,
                         Price = 100m
                     });
-            }
+            }*/
 
             return Content($"目前購物車總共：{Cart.TotalAmount} 元");
         }
