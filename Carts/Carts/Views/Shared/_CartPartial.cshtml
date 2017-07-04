@@ -1,7 +1,8 @@
 ﻿@*Day20*@
 @{
-            // 取得當前購物車所有內容
-            var CurrentCart = Carts.Models.Carts.Operation.GetCurrentCart();
+    // 取得當前購物車所有內容
+    var CurrentCart = Carts.Models.Carts.Operation.GetCurrentCart();
+
 }
 
 
@@ -18,26 +19,26 @@
         <li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
     }
 
-    <li class="divider">
-    <li>
-    <li><a class="btn btn-default text-center" href="=" #">結帳去</a></li>
+    <li class="divider"></li>
+    <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
+</ul>
 
 
+@*Day 19 試建立寫死的假資料*@
+@*
+    @{
+    //取得當前購物車所有內容
+    }
+    <a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown">
+        共500元 (3)
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
+        <li><a>可愛鉛筆 <span>100元 X 1</span></a></li>
+        <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
+        <li><a>可愛墊板 <span>150元 X 2</span></a></li>
+        <li class="divider"></li>
+        <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
+    </ul>
+*@
 
-    @*Day 19 試建立寫死的假資料*@
-    @*
-        @{
-        //取得當前購物車所有內容
-        }
-        <a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown">
-            共500元 (3)
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
-            <li><a>可愛鉛筆 <span>100元 X 1</span></a></li>
-            <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
-            <li><a>可愛墊板 <span>150元 X 2</span></a></li>
-            <li class="divider"></li>
-            <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
-        </ul>
-    *@
