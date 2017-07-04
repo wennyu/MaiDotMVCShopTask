@@ -11,11 +11,20 @@
     <span class="caret"></span>
 </a>
 <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
-    @foreach (var item in CurrentCart)
+    @if (CurrentCart.Any())
     {
-        //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
+        foreach (var item in CurrentCart)
+        {
+            //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
         <li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
+        }
     }
+
+    else
+    {
+        <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
+    }
+
 
     <li class="divider"></li>
     <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
