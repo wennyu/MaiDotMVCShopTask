@@ -114,12 +114,12 @@ namespace Carts.Models.Carts
 
         public IEnumerator<CartItem> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable<CartItem>)cartItems).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable<CartItem>)cartItems).GetEnumerator();
         }
     }
 }
