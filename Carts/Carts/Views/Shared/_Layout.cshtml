@@ -7,16 +7,16 @@
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/modernizr")
+
 
     @*D21 使用Ajax 以在商品頁面加入購物車(加入後不能離開目前的商品瀏覽頁面)
         在HTML的head區段中新增一段JavaScript，
             主要為AddToCart()方法，
             此方法將傳入的productid丟給CartControoler中的AddToCart()方法，
-            並且將回傳的購物車頁面更新至id為Cart的li元素裡
-    *@
+            並且將回傳的購物車頁面更新至id為Cart的li元素裡*@
 
     @*購物車JS*@
     <script type="text/javascript">
@@ -25,19 +25,22 @@
             console.log("Ready;!");
         });
 
-        function AddToCart(proudctId) { }
+        function AddToCart(productId) {
         //加入編號為 productId 的商品到購物車
         //<param name="productId">The product identifier.</param>
         $.ajax({
             type: "POST",
-            url: '@Url.Action("AddToCart","Cart")',
+            url: '@Url.Action("AddToCart", "Cart")',
             data: { id: productId },
+            error: function (message) {
+                console.log(message)
+            },
             success: function (message) {
                 // 將回傳的購物車頁面，填入 li#Cart
                 $('li#Cart').html(message);
             }
         });
-        
+        }
     </script>
 
 

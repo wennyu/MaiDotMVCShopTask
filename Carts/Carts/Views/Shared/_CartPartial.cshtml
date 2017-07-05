@@ -10,28 +10,30 @@
     @string.Format("共 {0} 元 ({1})", CurrentCart.TotalAmount, CurrentCart.Count)
     <span class="caret"></span>
 </a>
+
 <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
     @if (CurrentCart.Any())
-    {
-        foreach (var item in CurrentCart)
-        {
+            //@if (CurrentCart.Count > 0) 如果目前購物車內商品數量大於零才顯示商品資訊(買大寫法)
+            {
+                foreach (var item in CurrentCart)
+                {
             //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
-        <li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
+            <li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
+                    }
+            }
+
+            else
+            {
+            <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
         }
-    }
-
-    else
-    {
-        <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
-    }
 
 
-    <li class="divider"></li>
-    <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
-</ul>
+        <li class="divider"></li>
+        <li><a class="btn btn-default text-center" href="#">結帳去</a></li>
+    </ul>
 
 
-@*Day 19 試建立寫死的假資料*@
+    @*Day 19 試建立寫死的假資料*@
 @*
     @{
     //取得當前購物車所有內容
