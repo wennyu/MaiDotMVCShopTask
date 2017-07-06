@@ -112,6 +112,37 @@ namespace Carts.Models.Carts
             return true;
         }
 
+        //Day22新增RemoveProduct()方法，
+        //如果ProductId有存在購物車則移除，若不存在則不做任何動作。
+        /// <summary>
+        /// 移除一筆 Product,使用productId
+        /// </summary>
+        ///  <param name="productId">The product identifier.</param>
+        /// <returns></returns>
+
+        public bool RemoveProduct(int productId)
+        {
+            var FindItem = this.cartItems.Where(w => w.Id == productId)
+                .Select(s => s).FirstOrDefault();
+
+            //判斷相同 Id 的 CartItem 是否已經存在購物車內
+            if (FindItem != default(Models.Carts.CartItem))
+             /*
+                 {
+                 //不存在購物車內，不需做任何動作
+                  }
+             else
+            */
+            {
+                // 存在於購物車內，將商品移除
+                this.cartItems.Remove(FindItem);
+            }
+
+            return true;
+        }
+
+
+
         public IEnumerator<CartItem> GetEnumerator()
         {
             return ((IEnumerable<CartItem>)cartItems).GetEnumerator();
