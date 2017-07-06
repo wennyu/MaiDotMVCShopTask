@@ -33,7 +33,7 @@ namespace Carts.Controllers
         }
 
 
-        //Day22 新增RemoveFromCart() Action ， 呼叫步驟1中Cart類別的RemoveProduct()方法
+        //Day22 新增RemoveFromCart() Action ， 呼叫Cart類別的RemoveProduct()方法
         /// <summary>
         /// 從購物車移除 Product
         /// </summary>
