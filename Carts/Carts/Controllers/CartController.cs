@@ -31,5 +31,21 @@ namespace Carts.Controllers
             CurrentCart.AddProduct(id);
             return PartialView("_CartPartial");
         }
+
+
+        //Day22 新增RemoveFromCart() Action ， 呼叫步驟1中Cart類別的RemoveProduct()方法
+        /// <summary>
+        /// 從購物車移除 Product
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>回傳購物車頁面</returns>
+
+        public ActionResult RemoveFromProduct(int id)
+        {
+            var CurrentCart = Models.Carts.Operation.GetCurrentCart();
+            CurrentCart.RemoveProduct(id);
+            return PartialView("_CartPartial");
+        }
+
     }
 }
