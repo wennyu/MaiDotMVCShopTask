@@ -13,17 +13,23 @@
 
 <ul class="dropdown-menu" role="menu" aria-labelledby="CartDropDown">
     @if (CurrentCart.Any())
-            //@if (CurrentCart.Count > 0) 如果目前購物車內商品數量大於零才顯示商品資訊(買大寫法)
-            {
-                foreach (var item in CurrentCart)
-                {
+    //@if (CurrentCart.Count > 0) 如果目前購物車內商品數量大於零才顯示商品資訊(買大寫法)
+    {
+        foreach (var item in CurrentCart)
+        {
             //依序輸出：<li><a>可愛橡皮擦<span>50 元 X 2</span></a></li>
-            <li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
-                    }
-            }
 
-            else
-            {
+            //Day22 購物車頁面中新增刪除商品的按鈕，並且呼叫JavaScript的RemoveProduct()
+            //Day22修改原<li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
+            <li class="col-xs-12">
+                <span class="col-xs-10">@item.Name @item.Price 元 X @item.Quantity</span>
+                <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@item.Id')">x</span>
+            </li>
+        }
+    }
+
+    else
+    {
             <li><a class="btn btn-default text-center" href="#">購物車無任何商品</a></li>
         }
 
