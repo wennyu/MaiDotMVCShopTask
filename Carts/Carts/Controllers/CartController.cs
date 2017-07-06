@@ -40,7 +40,7 @@ namespace Carts.Controllers
         /// <param name="id">The identifier.</param>
         /// <returns>回傳購物車頁面</returns>
 
-        public ActionResult RemoveFromProduct(int id)
+        public ActionResult RemoveFromCart(int id)
         {
             var CurrentCart = Models.Carts.Operation.GetCurrentCart();
             CurrentCart.RemoveProduct(id);

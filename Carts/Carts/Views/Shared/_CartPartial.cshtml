@@ -22,7 +22,8 @@
             //Day22 購物車頁面中新增刪除商品的按鈕，並且呼叫JavaScript的RemoveProduct()
             //Day22修改原<li><a>@item.Name <span>@item.Price 元 X @item.Quantity</span></a></li>
             <li class="col-xs-12">
-                <span class="col-xs-10">@item.Name @item.Price 元 X @item.Quantity</span>
+                @*col-xs-數字 調整欄寬*@
+                <span class="col-xs-9">@item.Name @item.Price 元 X @item.Quantity</span>
                 <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@item.Id')">x</span>
             </li>
         }

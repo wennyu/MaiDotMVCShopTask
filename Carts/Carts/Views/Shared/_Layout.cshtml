@@ -41,27 +41,29 @@
                 }
             });
 
-            //Day22_3  新增JavaScript中的RemoveFromCart()方法，呼叫CartController 的RemoveProduct() Action
-            function RemoveFromCart(productId) {
-                /// <summary>
-                /// 從購物車移除編號為 productId 的商品
-                /// </summary>
-                /// <param name="productId">The product identifier.</param>
-                /// <returns></returns>
-                $ajax({
-                    type: "POST",
-                    url: '@Url.Action("RemoveFromCart","Cart")',
-                    data: { id: productId },
-                    error: function (message) {
-                        console.log(message);
-                    },
-                    success: function (message) {
-                        //// 將回傳的購物車頁面，填入 li#Car
-                        $('li#Cart').html(message);
-                    }
-                });
+        }
 
-            }
+        //Day22_3  新增JavaScript中的RemoveFromCart()方法，呼叫CartController 的RemoveProduct() Action
+        function RemoveFromCart(productId) {
+            /// <summary>
+            /// 從購物車移除編號為 productId 的商品
+            /// </summary>
+            /// <param name="productId">The product identifier.</param>
+            /// <returns></returns>
+
+            //$.ajax < 注意前面要有「.」
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("RemoveFromCart","Cart")',
+                data: { id: productId },
+                error: function (message) {
+                    console.log(message);
+                },
+                success: function (message) {
+                    //// 將回傳的購物車頁面，填入 li#Car
+                    $('li#Cart').html(message);
+                }
+            });
         }
 
     </script>
