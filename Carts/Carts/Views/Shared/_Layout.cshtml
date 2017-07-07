@@ -68,6 +68,23 @@
             });
         }
 
+        //Day23  新增JavaScript中的ClearCart()方法，呼叫CartController 的ClearCart() Action
+        //清空購物車內所有商品
+        function ClearCart() {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ClearCart","Cart")',
+                data: {},
+                error: function (message) {
+                    console.log(message);
+                },
+                success: function (message) {
+                    $('li#Cart').html(message);
+                    console.log("已清空");
+                }
+            });
+        }
+
     </script>
 
 
