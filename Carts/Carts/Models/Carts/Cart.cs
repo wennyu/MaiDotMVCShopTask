@@ -142,6 +142,16 @@ namespace Carts.Models.Carts
         }
 
 
+        //Day23 新增ClearCart()方法，直接將購物車內的cartItems清空。
+        /// <summary>
+        /// 清空購物車
+        /// </summary>
+        /// <returns></returns>
+        public bool ClearCart()
+        {
+            this.cartItems.Clear();
+            return true;
+        }
 
         public IEnumerator<CartItem> GetEnumerator()
         {

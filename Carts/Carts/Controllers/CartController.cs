@@ -39,11 +39,23 @@ namespace Carts.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>回傳購物車頁面</returns>
-
         public ActionResult RemoveFromCart(int id)
         {
             var CurrentCart = Models.Carts.Operation.GetCurrentCart();
             CurrentCart.RemoveProduct(id);
+            return PartialView("_CartPartial");
+        }
+
+
+        //Day23  新增ClearCart() Action ， 呼叫Cart類別的ClearCart()方法                
+        /// <summary>
+        /// Clears the cart. 清空購物車
+        /// </summary>
+        /// <returns>回傳購物車頁面</returns>
+        public ActionResult ClearCart()
+        {
+            var CurrentCart = Models.Carts.Operation.GetCurrentCart();
+            CurrentCart.ClearCart();
             return PartialView("_CartPartial");
         }
 
