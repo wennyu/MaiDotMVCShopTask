@@ -6,9 +6,7 @@ using System.Web;
 
 namespace Carts.Models.OrderModel
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class Ship
     {
         /// <summary>

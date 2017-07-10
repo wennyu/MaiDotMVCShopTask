@@ -1,0 +1,15 @@
+﻿@model Carts.Models.OrderModel.Ship
+
+@*Day24.3 加入檢視Index.cshtml，資料模型使用Day24.1的Ship模型，
+    此頁面主要為顯示購物車內所有商品讓使用者確認用*@
+
+@{
+    ViewBag.Title = "結帳";
+    Layout = "~/View/Shared/_Layout.cshtml";
+
+    //取得目前購物車
+    var Cart = Carts.Models.Carts.Operation.GetCurrentCart();
+}
+
+<h2>結帳</h2>
+
