@@ -76,7 +76,9 @@ namespace Carts.Models.Carts
                 Id = product.Id,
                 Name = product.Name,
                 Price = product.Price,
-                Quantity = 1
+                Quantity = 1,
+                //Day24 新增圖片 (新增項目，故前面的「Quantity = 1」後,要加個「,」。)
+                DefaultImageURL = product.DefaultImageURL
             };
 
             //將 CartItem 加入到購物車

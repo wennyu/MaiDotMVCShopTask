@@ -42,6 +42,15 @@ namespace Carts.Models.Carts
                 return this.Price * this.Quantity;
             }
         }
+
+        /// <summary>
+        /// 商品圖片 Gets or sets the default image URL.
+        /// </summary>
+        /// <value>
+        /// The default image URL.
+        /// </value>
+        public string DefaultImageURL { get; set; }
+
     }
 
 }
