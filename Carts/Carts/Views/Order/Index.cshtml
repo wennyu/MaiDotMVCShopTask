@@ -13,3 +13,82 @@
 
 <h2>結帳</h2>
 
+@*列出購物車內商品，讓使用者作最後確認*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>商品圖</th>
+            <th>名稱</th>
+            <th>售價</th>
+            <th>數量</th>
+            <th>小計</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Cart)
+        {
+            <tr>
+                <td><img src="@product.DefaultImageURL" width="50" height="50"></td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Quantity</td>
+                <td>@product.Amount</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3"></td>
+            <td>總計</td>
+            <td>@Cart.TotalAmount</td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+
+@*讓使用者填入寄送資訊*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>收貨人資訊</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @*ReceiverName*@
+        <div class="form-group">
+            @Html.LabelFor(m => m.ReceiverName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.ReceiverName, new { htmlAttributes = new { @class = "from-control" } })
+                @Html.ValidationMessageFor(m => m.ReceiverName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*ReceiverPhone*@
+        <div class="form-group">
+            @Html.LabelFor(m => m.ReceiverPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.ReceiverPhone, new { htmlAttributes = new { @class = "from-control" } })
+                @Html.ValidationMessageFor(m => m.ReceiverPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @*ReceiverAddress*@
+        <div class="form-group">
+            @Html.LabelFor(m => m.ReceiverAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.ReceiverAddress, new { htmlAttributes = new { @class = "from-control" } })
+                @Html.ValidationMessageFor(m => m.ReceiverAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="確定購買" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
