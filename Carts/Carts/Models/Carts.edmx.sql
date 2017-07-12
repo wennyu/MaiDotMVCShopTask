@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/29/2017 16:47:27
+-- Date Created: 07/12/2017 17:24:04
 -- Generated from EDMX file: C:\WendyJob\[git]]\MaiDotMVCShopTask\Carts\Carts\Models\Carts.edmx
 -- --------------------------------------------------
 
@@ -45,6 +45,26 @@ CREATE TABLE [dbo].[Products] (
 );
 GO
 
+-- Creating table 'Orders'
+CREATE TABLE [dbo].[Orders] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [UserId] nvarchar(max)  NOT NULL,
+    [RecieverName] nvarchar(max)  NOT NULL,
+    [RecieverPhone] nvarchar(max)  NOT NULL,
+    [RecieverAddress] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'OrderDetails'
+CREATE TABLE [dbo].[OrderDetails] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [OrderId] int  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Price] nvarchar(max)  NOT NULL,
+    [Quantity] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -55,9 +75,36 @@ ADD CONSTRAINT [PK_Products]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Orders'
+ALTER TABLE [dbo].[Orders]
+ADD CONSTRAINT [PK_Orders]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'OrderDetails'
+ALTER TABLE [dbo].[OrderDetails]
+ADD CONSTRAINT [PK_OrderDetails]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
+
+-- Creating foreign key on [OrderId] in table 'OrderDetails'
+ALTER TABLE [dbo].[OrderDetails]
+ADD CONSTRAINT [FK_OrderOrderDetail]
+    FOREIGN KEY ([OrderId])
+    REFERENCES [dbo].[Orders]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderOrderDetail'
+CREATE INDEX [IX_FK_OrderOrderDetail]
+ON [dbo].[OrderDetails]
+    ([OrderId]);
+GO
 
 -- --------------------------------------------------
 -- Script has ended

@@ -234,6 +234,12 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Carts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>Carts.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OrderModel\Ship.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Carts.tt</DependentUpon>
