@@ -15,8 +15,13 @@ using Carts.Models;
 若遺失該檔案，則可以另建置一個全新的專案＞
 測試會員註冊功能是否正常＞
 複製將該資料夾的檔案至此專案＞
+
+在 Web.Config ，
+在 新專案的Web.Config 找  <connectionStrings>項目，
+複製　DefaultConnection，
+將該項目貼回原專案。
+
 測試登入方才建立的帳號，若可登錄，即可。
-（不需重新命名檔案）
 */
 
 namespace Carts.Controllers
