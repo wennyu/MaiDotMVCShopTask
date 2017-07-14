@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Carts.Controllers
 {
+    [Authorize] //需登入才可以結帳
     public class OrderController : Controller
     {
         // GET: Order
