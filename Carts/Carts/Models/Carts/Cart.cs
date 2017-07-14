@@ -155,6 +155,25 @@ namespace Carts.Models.Carts
             return true;
         }
 
+        //Day25
+        public List<Models.OrderDetail> ToOrderDetailList(int orderId)
+        {
+            var result = new List<Models.OrderDetail>();
+            foreach (var item in this.cartItems)
+            {
+                result.Add(new Models.OrderDetail()
+                {
+                    Name = item.Name,
+                    Price = item.Price,
+                    Quantity = item.Quantity,
+                    OrderId = orderId
+                });
+            }
+            return result;
+        }
+
+        #region IEnumerator
+
         public IEnumerator<CartItem> GetEnumerator()
         {
             return ((IEnumerable<CartItem>)cartItems).GetEnumerator();
@@ -164,5 +183,6 @@ namespace Carts.Models.Carts
         {
             return ((IEnumerable<CartItem>)cartItems).GetEnumerator();
         }
+        #endregion
     }
 }
