@@ -10,6 +10,15 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Carts.Models;
 
+/*在App_Data裡，有存放與註冊會員資枓有關的mdf檔案。
+該檔案不會上傳至Git。
+若遺失該檔案，則可以另建置一個全新的專案＞
+測試會員註冊功能是否正常＞
+複製將該資料夾的檔案至此專案＞
+測試登入方才建立的帳號，若可登錄，即可。
+（不需重新命名檔案）
+*/
+
 namespace Carts.Controllers
 {
     [Authorize]
