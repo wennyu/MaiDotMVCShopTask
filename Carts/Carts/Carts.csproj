@@ -373,6 +373,7 @@
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\ManageOrder\Index.cshtml" />
+    <Content Include="Views\ManageOrder\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

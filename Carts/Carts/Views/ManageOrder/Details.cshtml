@@ -1,0 +1,40 @@
+﻿@*Day26 新增檢視Details.cshtml，此檢視是某筆訂單的詳細購買商品內容*@
+
+@model IEnumerable<Carts.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@string.Format("訂單編號 {0} 商品列表",this.Model.First().Id)</h2>
+<hr />
+@Html.ActionLink("回商品列表", "Index", new { }, new { @class = "btn btn-default" })
+
+<table class="table">
+    <tr>
+        <th>商品名稱</th>
+        <th>商品價格</th>
+        <th>購買數量</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Quantity)
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+   @Html.ActionLink("回商品列表", "Index", new { }, new { @class = "btn btn-default" })
+</p>
