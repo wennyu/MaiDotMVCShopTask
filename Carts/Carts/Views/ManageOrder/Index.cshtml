@@ -11,6 +11,7 @@
 <table class="table">
     <tr>
         <th>購買會員編號</th>
+        <th>購買會員暱稱</th>
         <th>收貨人姓名</th>
         <th>收貨人電話</th>
         <th>收貨人住址</th>
@@ -20,6 +21,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>@Html.DisplayFor(modelItem => item.UserId)</td>
+        <td>@item.GetUserName()</td>
         <td>@Html.DisplayFor(modelItem => item.ReceiverName)</td>
         <td>@Html.DisplayFor(modelItem => item.ReceiverPhone)</td>
         <td>@Html.DisplayFor(modelItem => item.ReceiverAddress)</td>
