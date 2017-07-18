@@ -242,6 +242,7 @@
       <DependentUpon>Carts.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderModel\Ship.cs" />
+    <Compile Include="Models\PartialClass.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Carts.tt</DependentUpon>
     </Compile>
