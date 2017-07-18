@@ -44,9 +44,9 @@ namespace Carts.Controllers
                     var order = new Models.Order()
                     {
                         UserId = UserId,
-                        RecieverName = model.ReceiverName,
-                        RecieverPhone = model.ReceiverPhone,
-                        RecieverAddress = model.ReceiverAddress
+                        ReceiverName = model.ReceiverName,
+                        ReceiverPhone = model.ReceiverPhone,
+                        ReceiverAddress = model.ReceiverAddress
                     };
 
 

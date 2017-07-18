@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/14/2017 15:28:49
+-- Date Created: 07/18/2017 15:28:22
 -- Generated from EDMX file: C:\WendyJob\[git]]\MaiDotMVCShopTask\Carts\Carts\Models\Carts.edmx
 -- --------------------------------------------------
 
@@ -58,9 +58,9 @@ GO
 CREATE TABLE [dbo].[Orders] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [UserId] nvarchar(max)  NOT NULL,
-    [RecieverName] nvarchar(max)  NOT NULL,
-    [RecieverPhone] nvarchar(max)  NOT NULL,
-    [RecieverAddress] nvarchar(max)  NOT NULL
+    [ReceiverName] nvarchar(max)  NOT NULL,
+    [ReceiverPhone] nvarchar(max)  NOT NULL,
+    [ReceiverAddress] nvarchar(max)  NOT NULL
 );
 GO
 

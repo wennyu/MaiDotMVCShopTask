@@ -22,9 +22,9 @@ namespace Carts.Models
     
         public int Id { get; set; }
         public string UserId { get; set; }
-        public string RecieverName { get; set; }
-        public string RecieverPhone { get; set; }
-        public string RecieverAddress { get; set; }
+        public string ReceiverName { get; set; }
+        public string ReceiverPhone { get; set; }
+        public string ReceiverAddress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

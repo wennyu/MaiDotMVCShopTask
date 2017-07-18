@@ -19,7 +19,7 @@ namespace Carts.Controllers
             {
                 //取得Order中所有資料
                 var result = db.Orders.Select(s => s).ToList();
-                return View();
+                return View(result);
             }
         }
 

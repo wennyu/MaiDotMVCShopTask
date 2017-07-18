@@ -35,9 +35,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RecieverName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RecieverPhone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RecieverAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReceiverName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReceiverPhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReceiverAddress" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderDetails">
     <Key>
@@ -96,9 +96,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <NavigationProperty Name="OrderDetails" Relationship="CartsModel.OrderOrderDetail" FromRole="Order" ToRole="OrderDetail" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="RecieverName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="RecieverPhone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="RecieverAddress" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceiverName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceiverPhone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceiverAddress" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -150,9 +150,9 @@
         <MappingFragment StoreEntitySet="Orders">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="RecieverName" ColumnName="RecieverName" />
-          <ScalarProperty Name="RecieverPhone" ColumnName="RecieverPhone" />
-          <ScalarProperty Name="RecieverAddress" ColumnName="RecieverAddress" />
+          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+          <ScalarProperty Name="ReceiverPhone" ColumnName="ReceiverPhone" />
+          <ScalarProperty Name="ReceiverAddress" ColumnName="ReceiverAddress" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
