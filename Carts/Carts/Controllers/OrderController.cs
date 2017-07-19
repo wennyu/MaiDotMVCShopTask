@@ -67,5 +67,44 @@ namespace Carts.Controllers
 
             return View();
         }
+
+        /*Day27 會員我的訂單功能
+         在OrderController中新增兩個方法(Action)，
+         分別為MyOrder()與MyOrderDetail()，
+         其中MyOrder()功能為取得會員目前所有訂單，
+         MyOrderDetail則是取得某筆訂單內的詳細商品資訊
+         */
+
+        public ActionResult MyOrder()
+        {
+            // 取得目前登入使用者 Id
+            var UserId = HttpContext.User.Identity.GetUserId();
+
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                var result = db.Orders
+                    .Where(w => w.UserId == UserId)
+                    .Select(s => s).ToList();
+
+                return View(result);
+            }
+        }
+
+        public ActionResult MyOrderDetail(int id)
+        {
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                var result = db.OrderDetails
+                    .Where(w => w.OrderId == id)
+                    .Select(s => s).ToList();
+
+                if (result.Any())
+                {
+                    return View(result);
+                }
+
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
