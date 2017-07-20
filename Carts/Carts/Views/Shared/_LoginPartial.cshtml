@@ -9,6 +9,10 @@
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
+        @*Day27 新增會員登入時才顯示的Menu項目，主要連結至我的訂單頁面*@
+        <li>
+            @Html.ActionLink("我的訂單","MyOrder","Order",routeValues: null,htmlAttributes:new { title = "Order"})
+        </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
     </ul>
     }
