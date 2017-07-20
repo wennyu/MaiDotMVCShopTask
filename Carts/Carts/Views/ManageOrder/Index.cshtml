@@ -7,18 +7,29 @@
 
 <h2>訂單列表</h2>
 
+@*Day28
+打開加入搜尋框與搜尋按鈕。
+    使用Form的方式將名稱為UserName的搜尋框內的值丟給ManageOrderController的SearchByUserName()執行*@
+@using (Html.BeginForm("SearchByUserName", "ManageOrder"))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBox("UserName", null, new { @class = "btn-info" } )
+    <input type="submit" value= "搜尋" class="btn btn-default"/>
+}
+
 
 <table class="table">
     <tr>
         <th>購買會員編號</th>
-        <th>購買會員暱稱</th>
+        <th>購買會員</th>
         <th>收貨人姓名</th>
         <th>收貨人電話</th>
         <th>收貨人住址</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>@Html.DisplayFor(modelItem => item.UserId)</td>
         <td>@item.GetUserName()</td>

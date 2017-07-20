@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="CartsModel.Order" Width="1.5" PointX="2.875" PointY="0.75" />
         <EntityTypeShape EntityType="CartsModel.OrderDetail" Width="1.5" PointX="5.125" PointY="0.75" />
         <AssociationConnector Association="CartsModel.OrderOrderDetail" />
+        <EntityTypeShape EntityType="CartsModel.ProductComment" Width="1.5" PointX="7.375" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
