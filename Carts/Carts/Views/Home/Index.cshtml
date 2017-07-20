@@ -35,7 +35,7 @@
                         @* 修改前: <a href="#" class="btn btn-primary" role="button">加入購物車</a>
                             <a href="#" class="btn btn-default" role="button">詳細資訊</a>*@
                         <a href="javascript:void(0);" onclick="AddToCart('@product.Id')" class="btn btn-primary" role="button">加入購物車</a>
-                        <a href="javascript:void(0);" class="btn btn-default" role="button">詳細資訊</a>
+                        <a href="@Url.Action("Details",new { id = product.Id})" class="btn btn-default" role="button">詳細資訊</a>
                     </p>
                 </div>
             </div>
