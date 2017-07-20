@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Carts.Controllers
 {
+    [Authorize] //限制登入才可查看訂單
     public class ManageOrderController : Controller
     {
         // GET: ManageOrder
