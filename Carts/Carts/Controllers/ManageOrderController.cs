@@ -43,5 +43,42 @@ namespace Carts.Controllers
                 }
             }
         }
+              /*Day28 
+             ManageOrderController中新增SearchByUserName()，
+             由於我們網站的使用者與訂單是兩個不同的資料庫，
+             故我們先使用UserName搜尋出UserId後，
+             再至Orders表查詢該UserId的所有訂單。
+             將結果丟給Index()的View   */
+
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchByUserName(string userName)
+        {
+            // 儲存查詢出來的 UserId
+            string SearchUserId = null;
+            using (Models.UserEntities db = new Models.UserEntities())
+            {
+                SearchUserId = db.AspNetUsers
+                    .Where(w => w.UserName == userName)
+                    .Select(s => s.Id).FirstOrDefault();
+            }
+
+            //如果有存在UserId
+            if (!string.IsNullOrEmpty(SearchUserId))
+                {
+                //找出該UserId的所有訂單
+                using (Models.CartsEntities1 db = new Models.CartsEntities1())
+                {
+                    var result = db.Orders
+                        .Where(w => w.UserId == SearchUserId)
+                        .Select(s => s).ToList();
+
+                    //回傳結果至Index頁面
+                    return View("Index", result);
+                }
+            }
+
+            //回傳空結果至Index View
+            return View("Index", new List<Models.Order>());
+        }   
     }
 }
