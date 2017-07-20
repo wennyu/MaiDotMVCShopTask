@@ -94,16 +94,19 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities1 db = new Models.CartsEntities1())
             {
-                var result = db.OrderDetails
-                    .Where(w => w.OrderId == id)
-                    .Select(s => s).ToList();
+                var result = (from s in db.OrderDetails
+                              where s.OrderId == id
+                              select s).ToList();
 
-                if (result.Any())
+                if (result.Count == 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
                 {
                     return View(result);
                 }
-
-                return RedirectToAction("Index");
+                
             }
         }
     }
