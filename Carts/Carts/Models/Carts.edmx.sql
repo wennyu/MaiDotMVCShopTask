@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/18/2017 15:28:22
+-- Date Created: 07/20/2017 15:44:58
 -- Generated from EDMX file: C:\WendyJob\[git]]\MaiDotMVCShopTask\Carts\Carts\Models\Carts.edmx
 -- --------------------------------------------------
 
@@ -74,6 +74,16 @@ CREATE TABLE [dbo].[OrderDetails] (
 );
 GO
 
+-- Creating table 'ProductComments'
+CREATE TABLE [dbo].[ProductComments] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [UserId] nvarchar(max)  NOT NULL,
+    [Content] nvarchar(max)  NOT NULL,
+    [CreateDate] datetime  NOT NULL,
+    [ProductId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -93,6 +103,12 @@ GO
 -- Creating primary key on [Id] in table 'OrderDetails'
 ALTER TABLE [dbo].[OrderDetails]
 ADD CONSTRAINT [PK_OrderDetails]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ProductComments'
+ALTER TABLE [dbo].[ProductComments]
+ADD CONSTRAINT [PK_ProductComments]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

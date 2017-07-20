@@ -17,7 +17,7 @@ namespace Carts.Models
         public int Id { get; set; }
         public string UserId { get; set; }
         public string Content { get; set; }
-        public string CreateDate { get; set; }
-        public string ProductId { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public int ProductId { get; set; }
     }
 }

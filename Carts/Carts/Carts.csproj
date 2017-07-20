@@ -246,6 +246,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Carts.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductComment.cs">
+      <DependentUpon>Carts.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RouteTest\TempProducts.cs" />
     <Compile Include="Models\UserModel.Context.cs">
       <AutoGen>True</AutoGen>

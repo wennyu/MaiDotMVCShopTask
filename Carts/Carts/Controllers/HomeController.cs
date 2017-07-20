@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,5 +40,48 @@ namespace Carts.Controllers
 
             return View();
         }
+
+        //Day29 新增Details()，主要為顯示某個編號之商品詳細資訊
+        public ActionResult Details(int id)
+        {
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                var result = db.Products
+                    .Where(w => w.Id == id)
+                    .Select( s => s).FirstOrDefault();
+
+                if (result == default(Models.Product))
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(result);
+            }
+        }
+
+        [HttpPost]// 限定使用POST
+        [Authorize] // 登入會員才能留言
+        public ActionResult AddComment(int id, string content)
+        {
+            // 取得目前登入使用者 Id
+            var UserId = HttpContext.User.Identity.GetUserId();
+
+            var CurrentDateTime = DateTime.Now;
+
+            var Comment = new Models.ProductComment()
+            {
+                ProductId = id,
+                Content = content,
+                UserId = UserId,
+                CreateDate = CurrentDateTime
+            };
+
+            using (Models.CartsEntities1 db = new Models.CartsEntities1())
+            {
+                db.ProductComments.Add(Comment);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = id });
+        }
+
     }
 }
