@@ -46,15 +46,18 @@ namespace Carts.Controllers
         {
             using (Models.CartsEntities1 db = new Models.CartsEntities1())
             {
-                var result = db.Products
-                    .Where(w => w.Id == id)
-                    .Select( s => s).FirstOrDefault();
+                var result = (from s in db.Products
+                              where s.Id == id
+                              select s).FirstOrDefault();
 
                 if (result == default(Models.Product))
                 {
                     return RedirectToAction("Index");
                 }
-                return View(result);
+                else
+                {
+                    return View(result);
+                }
             }
         }
 

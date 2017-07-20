@@ -1,0 +1,75 @@
+﻿@model Carts.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //Day29 新增Details.cshtml檢視，此檢視除了顯示某筆商品資訊外，也順便將此筆商品的所有留言列表取出
+
+    var CommentList = new List<Carts.Models.ProductComment>();
+    using (Carts.Models.CartsEntities1 db = new Carts.Models.CartsEntities1())
+    {
+        CommentList = db.ProductComments
+            .Where(w => w.ProductId == this.Model.Id)
+            .Select(s => s).ToList();
+    }
+}
+
+<h2>商品資訊</h2>
+
+@*顯示留言列表，並且加入可以讓使用者留言的區段*@
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt></dt>
+        <dd>
+            <img src="@this.Model.DefaultImageURL" width="400" />
+        </dd>
+
+        <dt>名稱</dt>
+        <dd> @Html.DisplayFor(model => model.Name)</dd>
+
+        <dt>
+            描述
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            售價
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            庫存數量
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        @foreach (var comment in CommentList)
+        {
+            <dt>@comment.UserId：</dt>
+            <dd>@comment.Content (@comment.CreateDate)</dd>
+        }
+    </dl>
+
+    @using (Html.BeginForm("AddComment", "Home", FormMethod.Post, new { }))
+    {
+        @Html.HiddenFor(m => m.Id)
+        @Html.TextBox("Content")
+        <input type="submit" value="留言" class="btn btn-default"/>
+    }
+
+</div>
+<p>
+    @Html.ActionLink("回首頁", "Index",null , new {@class = "btn btn-default"}) 
+</p>
