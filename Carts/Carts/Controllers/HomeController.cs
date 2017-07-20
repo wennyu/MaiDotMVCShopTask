@@ -41,7 +41,7 @@ namespace Carts.Controllers
             return View();
         }
 
-        //Day29 新增Details()，主要為顯示某個編號之商品詳細資訊
+        //Day29_1 新增Details()，主要為顯示某個編號之商品詳細資訊
         public ActionResult Details(int id)
         {
             using (Models.CartsEntities1 db = new Models.CartsEntities1())
@@ -57,6 +57,11 @@ namespace Carts.Controllers
                 return View(result);
             }
         }
+
+        //Day29-2 
+       /*新增AddComment()，主要功能為接收使用者所輸入之留言，
+          並將其寫入ProductComment資料表中，
+          完成後重導至Details()*/
 
         [HttpPost]// 限定使用POST
         [Authorize] // 登入會員才能留言
