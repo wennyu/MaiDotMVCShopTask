@@ -57,7 +57,8 @@
     <dl class="dl-horizontal">
         @foreach (var comment in CommentList)
         {
-            <dt>@comment.UserId：</dt>
+            @*<dt>@comment.UserId：</dt>*@
+            <dt>@comment.GetUserName(comment.UserId)：</dt>
             <dd>@comment.Content (@comment.CreateDate)</dd>
         }
     </dl>

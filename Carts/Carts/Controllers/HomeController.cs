@@ -42,7 +42,7 @@ namespace Carts.Controllers
         }
 
         //Day29_1 新增Details()，主要為顯示某個編號之商品詳細資訊
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             using (Models.CartsEntities1 db = new Models.CartsEntities1())
             {
